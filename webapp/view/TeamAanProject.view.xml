@@ -1,0 +1,30 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" controllerName="ehb.Project.controller.TeamAanProject">
+<Page showNavButton="true" navButtonPress="onNavBack">
+	
+<f:SimpleForm title="Team aan project toewijzen">
+<f:content>
+	
+	<Label text="Project"/>
+<ComboBox id="projectid" items="{ path: '/projectSet' }">
+	
+	<core:Item key="{Id}" text="{Naam}" />
+</ComboBox>
+
+<Label text="Teamlid"/>
+<ComboBox id="teamlidid" items="{ path: '/teamlidSet' }">
+
+	<core:Item key="{Id}" text="{Voornaam} {Naam}"/>
+
+</ComboBox>
+<Label text="Rol"></Label>
+<ComboBox id="rolid" items="{path : '/rolSet' }">
+		<core:Item key="{Id}" text="{Rol}"/>
+</ComboBox>
+<Button text="Save" press="maak"/>
+</f:content>
+
+</f:SimpleForm>
+
+</Page>
+
+</mvc:View>

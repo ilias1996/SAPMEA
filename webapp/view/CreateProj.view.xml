@@ -1,0 +1,70 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" controllerName="ehb.Project.controller.CreateProj">
+	<Page showNavButton="true" navButtonPress="onNavBack">
+		<f:SimpleForm>
+			<Label text="Id"/>
+			<Text text="{Id}"/>
+			<Label text="Naam"/>
+			<Input value="{Naam}" editable = "false"/>
+			<Label text="Begindatum"/>
+			<DatePicker id="begindatum" value="{Begindatum}"/>
+			<Label text="Eindatum"/>
+			<DatePicker id="einddatum" value="{Einddatum}"/>
+			<Button text="Update" press="UpdateProj"/>
+		</f:SimpleForm>
+
+		
+				<Table id="TeamRolIDList" growing="true" growingThreshold="10" items="{              path: '/ProjTeamRolSet'       ,       parameters:{expand : 'teamlid,rol'}       }">
+					<headerToolbar>
+				<Toolbar>
+					<Title id="SalesOrdersTitle" text="Teamleden aan het project toegewezen" titleStyle="H2"/>
+						<ToolbarSpacer/>
+									<SearchField id="searchField" width="20%" placeholder="{i18n>searchFieldPlaceholder}" search="filterS"/>
+														<Button
+										id="addUserButton"
+										icon="sap-icon://add"
+										tooltip="teamlid aan een project toewijzen"
+										enabled="{= !${appView>/hasUIChanges}}"
+										press="naarTeamToewijzen">
+										<layoutData>
+											<OverflowToolbarLayoutData priority="NeverOverflow"/>
+										</layoutData>
+									</Button>
+								
+				</Toolbar>
+			</headerToolbar>
+						<columns>
+							<Column id="userNameColumn">
+								<Text text="Id"/>
+							</Column>
+							<Column id="firstNameColumn">
+								<Text text="ProjectId"/>
+							</Column>
+							<Column id="lastNameColumn">
+								<Text text="Teamlidid"/>
+							</Column>
+							<Column id="ageColumn">
+								<Text text="Rolid"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+								<Text text="{Id}"/>
+								</cells>
+								<cells>
+									<Input value="{Projectid}"/>
+								</cells>
+								<cells>
+									<Input value="{teamlid/Naam}"/>
+								</cells>
+								<cells>
+									<Input value="{rol/Rol}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+					
+					<Label id="test" text=""/>
+					
+	</Page>
+</mvc:View>

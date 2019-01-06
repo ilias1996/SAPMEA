@@ -1,0 +1,81 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZGS_PROJECT_093_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="teamlid" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Id" Type="Edm.Int32" Nullable="false" sap:label="Integer" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Naam" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Char20" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Voornaam" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Char20" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="ProjTeamRolSet" Relationship="ZGS_PROJECT_093_SRV.TeamToProjTeamRol" FromRole="FromRole_TeamToProjTeamRol"
+					ToRole="ToRole_TeamToProjTeamRol"/></EntityType>
+			<EntityType Name="project" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Id" Type="Edm.Int32" Nullable="false" sap:label="Integer" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Naam" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Char20" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Begindatum" Type="Edm.DateTime" Nullable="false" Precision="0" sap:label="Time Stamp" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Einddatum" Type="Edm.DateTime" Nullable="false" Precision="0" sap:label="Time Stamp" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="evaluatieSet" Relationship="ZGS_PROJECT_093_SRV.ProjectToEvaluatie" FromRole="FromRole_ProjectToEvaluatie"
+					ToRole="ToRole_ProjectToEvaluatie"/><NavigationProperty Name="ProjTeamRolSet" Relationship="ZGS_PROJECT_093_SRV.ProjectToProjTeamRol" FromRole="FromRole_ProjectToProjTeamRol"
+					ToRole="ToRole_ProjectToProjTeamRol"/></EntityType>
+			<EntityType Name="evaluatie" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Id" Type="Edm.Int32" Nullable="false" sap:label="Integer" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Projectid" Type="Edm.Int32" Nullable="false" sap:label="Integer" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Teamlidid" Type="Edm.Int32" Nullable="false" sap:label="Integer" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Evaluatie" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Char20" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Score" Type="Edm.Int32" Nullable="false" sap:label="Integer" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="project" Relationship="ZGS_PROJECT_093_SRV.ProjectToEvaluatie" FromRole="ToRole_ProjectToEvaluatie"
+					ToRole="FromRole_ProjectToEvaluatie"/></EntityType>
+			<EntityType Name="rol" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Id" Type="Edm.Int32" Nullable="false" sap:label="Integer" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Rol" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Char20" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="ProjTeamRolSet" Relationship="ZGS_PROJECT_093_SRV.RolToProjTeamRol" FromRole="FromRole_RolToProjTeamRol"
+					ToRole="ToRole_RolToProjTeamRol"/></EntityType>
+			<EntityType Name="ProjTeamRol" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Id" Type="Edm.Int32" Nullable="false" sap:label="Integer" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Projectid" Type="Edm.Int32" Nullable="false" sap:label="Integer" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Teamlidid" Type="Edm.Int32" Nullable="false" sap:label="Integer" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Rolid" Type="Edm.Int32" Nullable="false" sap:label="Integer" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="teamlid" Relationship="ZGS_PROJECT_093_SRV.TeamToProjTeamRol" FromRole="ToRole_TeamToProjTeamRol"
+					ToRole="FromRole_TeamToProjTeamRol"/><NavigationProperty Name="project" Relationship="ZGS_PROJECT_093_SRV.ProjectToProjTeamRol" FromRole="ToRole_ProjectToProjTeamRol"
+					ToRole="FromRole_ProjectToProjTeamRol"/><NavigationProperty Name="rol" Relationship="ZGS_PROJECT_093_SRV.RolToProjTeamRol" FromRole="ToRole_RolToProjTeamRol"
+					ToRole="FromRole_RolToProjTeamRol"/></EntityType>
+			<Association Name="RolToProjTeamRol" sap:content-version="1"><End Type="ZGS_PROJECT_093_SRV.rol" Multiplicity="1" Role="FromRole_RolToProjTeamRol"/><End Type="ZGS_PROJECT_093_SRV.ProjTeamRol" Multiplicity="*" Role="ToRole_RolToProjTeamRol"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_RolToProjTeamRol"><PropertyRef Name="Id"/></Principal>
+					<Dependent Role="ToRole_RolToProjTeamRol"><PropertyRef Name="Rolid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ProjectToProjTeamRol" sap:content-version="1"><End Type="ZGS_PROJECT_093_SRV.project" Multiplicity="1" Role="FromRole_ProjectToProjTeamRol"/><End Type="ZGS_PROJECT_093_SRV.ProjTeamRol" Multiplicity="*" Role="ToRole_ProjectToProjTeamRol"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ProjectToProjTeamRol"><PropertyRef Name="Id"/></Principal>
+					<Dependent Role="ToRole_ProjectToProjTeamRol"><PropertyRef Name="Projectid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ProjectToEvaluatie" sap:content-version="1"><End Type="ZGS_PROJECT_093_SRV.project" Multiplicity="1" Role="FromRole_ProjectToEvaluatie"/><End Type="ZGS_PROJECT_093_SRV.evaluatie" Multiplicity="*" Role="ToRole_ProjectToEvaluatie"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ProjectToEvaluatie"><PropertyRef Name="Id"/></Principal>
+					<Dependent Role="ToRole_ProjectToEvaluatie"><PropertyRef Name="Projectid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="TeamToProjTeamRol" sap:content-version="1"><End Type="ZGS_PROJECT_093_SRV.teamlid" Multiplicity="1" Role="FromRole_TeamToProjTeamRol"/><End Type="ZGS_PROJECT_093_SRV.ProjTeamRol" Multiplicity="*" Role="ToRole_TeamToProjTeamRol"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_TeamToProjTeamRol"><PropertyRef Name="Id"/></Principal>
+					<Dependent Role="ToRole_TeamToProjTeamRol"><PropertyRef Name="Teamlidid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZGS_PROJECT_093_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="teamlidSet" EntityType="ZGS_PROJECT_093_SRV.teamlid" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="projectSet" EntityType="ZGS_PROJECT_093_SRV.project" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="evaluatieSet" EntityType="ZGS_PROJECT_093_SRV.evaluatie" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="rolSet" EntityType="ZGS_PROJECT_093_SRV.rol" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ProjTeamRolSet" EntityType="ZGS_PROJECT_093_SRV.ProjTeamRol" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<AssociationSet Name="ProjectToEvaluatieSet" Association="ZGS_PROJECT_093_SRV.ProjectToEvaluatie" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="projectSet" Role="FromRole_ProjectToEvaluatie"/><End EntitySet="evaluatieSet" Role="ToRole_ProjectToEvaluatie"/></AssociationSet>
+				<AssociationSet Name="TeamToProjTeamRolSet" Association="ZGS_PROJECT_093_SRV.TeamToProjTeamRol" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="teamlidSet" Role="FromRole_TeamToProjTeamRol"/><End EntitySet="ProjTeamRolSet" Role="ToRole_TeamToProjTeamRol"/></AssociationSet>
+				<AssociationSet Name="ProjectToProjTeamRolSet" Association="ZGS_PROJECT_093_SRV.ProjectToProjTeamRol" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="projectSet" Role="FromRole_ProjectToProjTeamRol"/><End EntitySet="ProjTeamRolSet" Role="ToRole_ProjectToProjTeamRol"/></AssociationSet>
+				<AssociationSet Name="RolToProjTeamRolSet" Association="ZGS_PROJECT_093_SRV.RolToProjTeamRol" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="rolSet" Role="FromRole_RolToProjTeamRol"/><End EntitySet="ProjTeamRolSet" Role="ToRole_RolToProjTeamRol"/></AssociationSet>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/opu/odata/SAP/ZGS_PROJECT_093_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/opu/odata/SAP/ZGS_PROJECT_093_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

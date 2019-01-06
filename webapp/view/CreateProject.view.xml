@@ -1,0 +1,15 @@
+<mvc:View controllerName="ehb.Project.controller.CreateProject" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Page showNavButton="true" navButtonPress="onNavBack">
+		<f:SimpleForm>
+			<f:content>
+		<Label text="Naam"></Label>
+			<Input id="naam" ></Input>
+			<Label text="Begin datum"></Label>
+			<DatePicker id="begindatum"></DatePicker>
+				<Label text="Eind datum"></Label>
+			<DatePicker id="einddatum"></DatePicker>
+			<Button text="Save" press="maakProj"></Button>
+		</f:content></f:SimpleForm>
+	</Page>
+</mvc:View>

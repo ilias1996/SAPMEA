@@ -1,0 +1,30 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" controllerName="ehb.Project.controller.CreateEval">
+<Page showNavButton="true" navButtonPress="onNavBack">
+	
+<f:SimpleForm>
+<f:content>
+	<Label text="Project"/>
+<ComboBox items="{ path: '/projectSet' }">
+	
+	<core:Item key="{Id}" text="{Naam}" />
+</ComboBox>
+<Input value="{Projectid}"></Input>
+<Label text="Teamlid"/>
+<ComboBox id="teamlid" items="{ path: '/teamlidSet' }">
+
+	<core:Item key="{Id}" text="{Voornaam} {Naam}"/>
+
+</ComboBox>
+<Input value="{Teamlidid}"></Input>
+<Label text="Evaluatie (max 20 char)"/>
+<Input id="evaluatie" value="{Evaluatie}"/>
+<Label text="Score op 5 waarin 1 slecht is en 5 prachtig"/>
+<Input id="score" value="{Score}"/>
+<Button text="Save" press="SaveEval"/>
+</f:content>
+
+</f:SimpleForm>
+
+</Page>
+
+</mvc:View>

@@ -1,0 +1,274 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"id": "ehb.Project",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"ZGS_PROJECT_093_SRV": {
+				"uri": "/SAPGateway/sap/opu/odata/SAP/ZGS_PROJECT_093_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/ZGS_PROJECT_093_SRV/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "ehb.Project.view.App",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"handleValidation": true,
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "ehb.Project.i18n.i18n"
+				}
+			},
+			"": {
+				"uri": "/SAPGateway/sap/opu/odata/SAP/ZGS_PROJECT_093_SRV/",
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZGS_PROJECT_093_SRV",
+				"preload": true
+			},
+			"Project": {
+				"dataSource": "ZGS_PROJECT_093_SRV/projectSet",
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"Teamlid": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false
+			},
+			"Evaluatie": {
+				"dataSource": "ZGS_PROJECT_093_SRV/evaluatieSet",
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"ProjTeamRol": {
+				"dataSource": "ZGS_PROJECT_093_SRV/ProjTeamRolSet",
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"Rol": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "ehb.Project.view",
+				"controlAggregation": "pages",
+				"controlId": "idAppControl",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "RouteApp",
+					"pattern": "RouteApp",
+					"target": [
+						"TargetApp"
+					]
+				},
+				{
+					"pattern": "app",
+					"name": "app",
+					"target": "app"
+				},
+				{
+					"pattern": "evaluatie",
+					"name": "evaluatie",
+					"target": "evaluatie"
+				},
+				{
+					"pattern": "teamLid",
+					"name": "teamLid",
+					"target": "teamLid"
+				},
+				{
+					"pattern": "createTeamLid",
+					"name": "createTeamLid",
+					"target": "createTeamLid"
+				},
+				{
+					"pattern": "createProject",
+					"name": "createProject",
+					"target": "createProject"
+				},
+				{
+					"pattern": "createEvaluatie",
+					"name": "createEvaluatie",
+					"target": "createEvaluatie"
+				},
+				{
+					"pattern": "project",
+					"name": "project",
+					"target": "project"
+				},
+				{
+					"pattern": "teamAanProject",
+					"name": "teamAanProject",
+					"target": "teamAanProject"
+				},
+				{
+					"pattern": "projectSet/{objectId}",
+					"name": "object",
+					"target": [
+						"master",
+						"object"
+					]
+				},
+				{
+					"pattern": "createProj/{objectId}",
+					"name": "createProj",
+					"target": "createProj"
+				},
+				{
+					"pattern": "createEval/{objectId}",
+					"name": "createEval",
+					"target": "createEval"
+				},
+				{
+					"pattern": "evaluatieSet/{objectId}",
+					"name": "object",
+					"target": [
+						"master",
+						"object"
+					]
+				},
+				{
+					"pattern": "teamlidSet/{objectId}",
+					"name": "object",
+					"target": [
+						"master",
+						"object"
+					]
+				},
+				{
+					"pattern": "createTeam/{objectId}",
+					"name": "createTeam",
+					"target": "createTeam"
+				}
+			],
+			"targets": {
+				"TargetApp": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "App"
+				},
+				"app": {
+					"viewId": "app",
+					"viewName": "App"
+				},
+				"evaluatie": {
+					"viewId": "evaluatie",
+					"viewName": "Evaluatie"
+				},
+				"teamLid": {
+					"viewId": "teamLid",
+					"viewName": "TeamLid"
+				},
+				"project": {
+					"viewId": "project",
+					"viewName": "Project"
+				},
+				"notFound": {
+					"viewId": "notFound",
+					"viewName": "NotFound",
+					"transition": "show"
+				},
+				"createProj": {
+					"viewId": "createProj",
+					"viewName": "CreateProj"
+				},
+				"createTeam": {
+					"viewId": "createTeam",
+					"viewName": "CreateTeam"
+				},
+				"createEval": {
+					"viewId": "createEval",
+					"viewName": "CreateEval"
+				},
+				"createTeamLid": {
+					"viewId": "createTeamLid",
+					"viewName": "CreateTeamLid"
+				},
+				"createEvaluatie": {
+					"viewId": "createEvaluatie",
+					"viewName": "CreateEvaluatie"
+				},
+				"createProject": {
+					"viewId": "createProject",
+					"viewName": "CreateProject"
+				},
+				"teamAanProject": {
+					"viewId": "teamAanProject",
+					"viewName": "TeamAanProject"
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}

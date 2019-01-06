@@ -1,0 +1,35 @@
+<mvc:View
+	controllerName="ehb.Project.controller.Home"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+
+
+
+			<Page title="{i18n>title}">
+				<content>
+					
+					<List>
+						<StandardListItem
+						title="Projects"
+							type="Navigation"
+		press="goProject"
+						></StandardListItem>
+							<StandardListItem
+						title="Teamleden"
+							type="Navigation"
+		press="goTeamLid"
+						></StandardListItem>
+							<StandardListItem
+						title="Evaluaties"
+							type="Navigation"
+		press="goEvaluatie"
+						></StandardListItem>
+						
+					</List>
+					
+					
+				</content>
+			</Page>
+
+
+</mvc:View>

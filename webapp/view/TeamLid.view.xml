@@ -1,0 +1,50 @@
+<mvc:View
+	controllerName="ehb.Project.controller.TeamLid"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+<Page	showNavButton="true"
+		navButtonPress="onNavBack"
+>
+	
+	<List
+	id="TeamlidList"
+		headerText="Teamleden"
+		items="{
+			path: '/teamlidSet'
+		}" >
+				<headerToolbar>
+         <Toolbar>
+            <Title text="Teamleden"/>
+            <ToolbarSpacer/>
+            <SearchField width="50%" search="onFilterTeam"/>
+                 	<Button
+											id="addTeamLidButton"
+											icon="sap-icon://add"
+											tooltip="{i18n>createButtonText}"
+											enabled="{= !${appView>/hasUIChanges}}"
+											press="NavToCre">
+											<layoutData>
+												<OverflowToolbarLayoutData priority="NeverOverflow"/>
+											</layoutData>
+										</Button>
+         </Toolbar>
+      </headerToolbar>
+		<items>
+		<ObjectListItem
+				title="{Naam}"
+				type="Active"
+				press="onPress"
+				>
+			
+				<attributes>
+					<ObjectAttribute text="{Voornaam}" />
+
+				</attributes>
+			</ObjectListItem>
+	</items>
+	</List>
+	
+
+</Page>
+
+</mvc:View>

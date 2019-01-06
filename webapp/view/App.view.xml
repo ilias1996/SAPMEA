@@ -1,0 +1,29 @@
+<mvc:View controllerName="ehb.Project.controller.App" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+	<App id="idAppControl">
+		<pages>
+			<Page title="{i18n>title}">
+				<content>	<List>
+						<StandardListItem
+						title="Projects"
+							type="Navigation"
+		press="goProject"
+						></StandardListItem>
+							<StandardListItem
+						title="Evaluaties"
+							type="Navigation"
+		press="goEvaluatie"
+						></StandardListItem>
+							<StandardListItem
+						title="Teamleden"
+							type="Navigation"
+		press="goTeamLid"
+						></StandardListItem>
+						
+						
+					</List>
+					</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
